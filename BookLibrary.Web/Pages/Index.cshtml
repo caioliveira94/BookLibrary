@@ -1,0 +1,46 @@
+﻿@page
+@model IndexModel
+@{
+    Layout = "_Layout";
+}
+
+<h1 class="mt-4">Royal Library</h1>
+
+<div class="row mb-3">
+    <div class="col-auto">
+        <label for="searchBy" class="form-label">Search by:</label>
+        <select id="searchBy" class="form-select">
+            <option value="title">Title</option>
+            <option value="isbn">ISBN</option>
+        </select>
+    </div>
+    <div class="col-auto">
+        <label for="searchValue" class="form-label">Value</label>
+        <input id="searchValue" class="form-control" placeholder="search…" />
+    </div>
+    <div class="col-auto align-self-end">
+        <button id="searchBtn" class="btn btn-primary">Search</button>
+    </div>
+</div>
+
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Title</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Total Copies</th>
+            <th>Copies In Use</th>
+            <th>Type</th>
+            <th>ISBN</th>
+            <th>Category</th>
+        </tr>
+    </thead>
+    <tbody id="results">
+        <!-- linhas preenchidas pelo site.js -->
+    </tbody>
+</table>
+
+@section Scripts {
+    <script src="~/js/site.js" asp-append-version="true"></script>
+}

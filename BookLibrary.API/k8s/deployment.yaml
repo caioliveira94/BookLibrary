@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: booklib-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: booklib-api
+  template:
+    metadata:
+      labels:
+        app: booklib-api
+    spec:
+      containers:
+      - name: api
+        image: <...>.azurecr.io/booklibraryapi:latest
+        ports:
+        - containerPort: 80
+        env:
+        - name: ConnectionStrings__LibraryDb
+          value: "<...>"
